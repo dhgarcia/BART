@@ -1,0 +1,8 @@
+Participant ID :  
+Robot present : yes 
+Type : incite robot 
+Date : 29/11/18
+Start time : 13:38
+End time : XXXX 
+Elapsed time : [s] ZZZZ 
+Total reward : PP.PP 
