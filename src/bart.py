@@ -17,7 +17,7 @@ from kivy.uix.progressbar import ProgressBar
 from kivy.uix.textinput import TextInput
 
 
-from BART_app.naoqi_controller import naoqiController
+from naoqi_controller import naoqiController
 
 class BART_App(App):
 
@@ -43,6 +43,7 @@ class BART_App(App):
     def build(self):
         #initial values
         self.balloons = [randint(*self.range) for x in xrange(self.n_balloon)]
+        print(self.balloons)
 
         self.p = 0.00  # payment for the participant
         self.nb_pump = 0 # number of pumping
@@ -95,6 +96,7 @@ class BART_App(App):
         self.reward = Button(text='collect reward',size_hint=(None,None),size=(200,100),pos_hint={'center_x':0.75,'center_y':0.2})
         self.reward.bind(on_press=self.collect_reward)
         game.add_widget(self.reward) # button to colect the money
+        self.reward.opacity = 0 # the reward button become invisible
 
         self.im_pump = Image(source='images/pump.gif',size_hint=(None,None),size=(50,50),pos_hint={'center_x':0.15,'center_y':0.2})
         game.add_widget(self.im_pump) # the pump image

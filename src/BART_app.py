@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     import kivy
     from kivy.core.window import Window
-    from BART_app.bart import BART
+    from bart import BART
 
     Window.fullscreen = False
     Window.maximize()
