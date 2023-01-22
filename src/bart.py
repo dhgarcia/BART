@@ -285,15 +285,16 @@ class BART_App(App):
         self.deb = deb2
 
         # if robot is prompting
-        if (self.b == 0 and self.nb_pump>=25):
-            self.talk_risk_prompt()
-            if ((self.balloons[self.nb_bal]<self.nb_pump+10) and ((self.nb_pump+10)<127)) : # posibility to increase the maximum value of number of pump
-                self.balloons[self.nb_bal] = self.nb_pump+10
-            elif ((self.balloons[self.nb_bal]<self.nb_pump+10) and ((self.nb_pump+10)>=127)) :
-                self.balloons[self.nb_bal] = 127
-        elif (self.b == 1):
-            if (time.time()-self.delivery >= self.t):
-                self.talk_risk_pump()
+        if (self.nb_bal in self.promt_balloon):
+          if (self.b == 0 and self.nb_pump>=25):
+              self.talk_risk_prompt()
+              if ((self.balloons[self.nb_bal]<self.nb_pump+10) and ((self.nb_pump+10)<127)) : # posibility to increase the maximum value of number of pump
+                  self.balloons[self.nb_bal] = self.nb_pump+10
+              elif ((self.balloons[self.nb_bal]<self.nb_pump+10) and ((self.nb_pump+10)>=127)) :
+                  self.balloons[self.nb_bal] = 127
+          elif (self.b == 1):
+              if (time.time()-self.delivery >= self.t):
+                  self.talk_risk_pump()
 
     # function called by the 'pump balloon' button
     def pump_balloon(self,btn) :
