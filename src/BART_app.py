@@ -52,6 +52,9 @@ if __name__ == "__main__":
 
     import kivy
     from kivy.core.window import Window
+    from kivy.config import Config
+    Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+
     from bart import BART
 
     Window.fullscreen = False
