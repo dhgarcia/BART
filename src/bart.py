@@ -413,8 +413,9 @@ class BART_App(App):
 
     def talk_explode(self):
         if self.controller:
-            # Arm gesture
-            self.controller.armMovement()
+            if not self.condition in ["control", "robot"]:
+                # Arm gesture
+                self.controller.armMovement()
 
             if (self.nb_bal >= self.n_balloon): # it's the end of the game
                 self.controller.say("Oh \\pau=750\\ this was the last balloon. \\pau=500\\ Good job!")
